@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Probability</title>
+	</head>
+	<body>
+		<h1>Probability</h1>
+		<script>
+			"use strict";
+			const num_of_dice = Number(prompt("Enter the number of dice: "));
+            const eye_numbers_sum  = Number(prompt("Enter the sum of the eye numbers: "));
+
+			const number_of_rolls = 10000;
+
+            let repetitions_counter = 0;
+
+            for (let j = 0; j < number_of_rolls; j ++) {
+                let sum = 0;
+                for (let i = 0; i < num_of_dice; i++) {
+                    let roll = Math.floor(Math.random() * 6) + 1;
+                    sum = sum + roll;
+                }
+                if (sum === eye_numbers_sum) {
+                    repetitions_counter++;
+                }
+            }
+
+            const proportion_persent = (repetitions_counter * 100) / number_of_rolls;
+            const result = `Probability to get sum ${eye_numbers_sum} with ${num_of_dice} dice is ${proportion_persent?.toFixed(2)}%`;
+
+            const resultHtml = document.createElement('p');
+            resultHtml.innerText = result;
+            document.querySelector('body').appendChild(resultHtml);            
+		</script>
+	</body>
+</html>

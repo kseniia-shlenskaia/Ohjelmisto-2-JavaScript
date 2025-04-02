@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>All leap years from the interval</title>
+	</head>
+	<body>
+		<h1>All leap years from the interval</h1>
+		<script>
+			"use strict";
+            const year_1 = Number(prompt('Enter a year: '));
+            const year_2 = Number(prompt('Enter a year again: '));
+
+            let list = document.createElement('ul');
+
+            let years_amount = Math.abs(year_1 - year_2);
+            let start_value = Math.min(year_1, year_2)
+
+            for (let year = start_value; year <= (start_value + years_amount); year++) {
+                if (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) {
+                    let list_item = document.createElement('li');
+                    list_item.innerHTML = year;
+                    list.appendChild(list_item);
+                }
+            }
+
+            document.querySelector('body').appendChild(list);
+		</script>
+	</body>
+</html>
