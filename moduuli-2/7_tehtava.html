@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dice roll until the given number</title>
+	</head>
+	<body>
+		<h1>Dice roll until the given number</h1>
+		<p id="target"></p>
+		<script>
+			"use strict";
+            const results = [];
+            const num_of_sides = Number(prompt('Enter the number of sides on the dice'));
+
+			const get_dice_roll = (sides) => {
+                return Math.floor(Math.random() * sides) + 1;
+            };
+
+            while (true) {
+                const num = get_dice_roll(num_of_sides);
+                results.push(num);
+                if (num === num_of_sides) break;
+            }
+
+            const results_html_list = document.createElement('ul');
+
+            for (let i = 0; i < results.length; i++) {
+                const results_html_item = document.createElement('li');
+                results_html_item.innerText = results[i];
+                results_html_list.appendChild(results_html_item);
+            }
+
+            document.querySelector('body').appendChild(results_html_list);
+		</script>
+	</body>
+</html>

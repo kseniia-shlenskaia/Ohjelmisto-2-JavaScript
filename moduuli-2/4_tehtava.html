@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Numbers until zero</title>
+	</head>
+	<body>
+		<h1></h1>
+		<p id="target"></p>
+		<script>
+			"use strict";
+			const nums = [];
+			while (true) {
+			    const num = Number(prompt('Enter a number'));
+			    if (num === 0) break;
+			    nums.push(num);
+			}
+
+			nums.sort();
+			nums.reverse();
+			nums.forEach((num) => {
+			    console.log(num);
+			})
+		</script>
+	</body>
+</html>

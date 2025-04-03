@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Filter even numbers</title>
+	</head>
+	<body>
+		<h1>Filter even numbers</h1>
+		<p id="target"></p>
+		<script>
+			"use strict";
+            const src_array = [1, 2, 3, 4, 5, 6, 7];
+
+            const even_func = (array_of_numbers) => {
+                return array_of_numbers.filter(el => el % 2 === 0);
+            }
+
+            const res_array = even_func(src_array);
+
+            console.log('Source array: ');
+            console.log(src_array);
+            console.log('Result array: ');
+            console.log(res_array);
+            
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dog name</title>
+	</head>
+	<body>
+		<h1>Dog name</h1>
+		<p id="target"></p>
+		<script>
+			"use strict";
+			const dogs_names = [];
+            for (let i = 0; i < 6; i++) {
+                const dog_name = prompt(`Enter the name of the dog #${i + 1}`);
+                dogs_names.push(dog_name);
+            }
+            dogs_names.sort();
+            dogs_names.reverse();
+
+            const result_html_list = document.createElement('ul');
+            for (let i = 0; i < dogs_names.length; i++) {
+                const result_html_item = document.createElement('li');
+                result_html_item.innerText = dogs_names[i];
+                result_html_list.appendChild(result_html_item);
+            }
+
+            document.querySelector('body').appendChild(result_html_list);
+		</script>
+	</body>
+</html>

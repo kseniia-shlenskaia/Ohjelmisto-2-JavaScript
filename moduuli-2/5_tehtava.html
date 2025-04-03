@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Numbers until a repeated number is entered</title>
+	</head>
+	<body>
+		<h1>Numbers until a repeated number is entered</h1>
+		<p id="target"></p>
+		<script>
+			"use strict";
+			const nums = [];
+			while (true) {
+			    const num = Number(prompt('Enter a number'));
+			    if (nums.includes(num)) {
+                    alert('The number has already been given');
+                    break;
+                }
+			    nums.push(num);
+			}
+
+			nums.sort();
+			nums.forEach((num) => {
+			    console.log(num);
+			})
+		</script>
+	</body>
+</html>

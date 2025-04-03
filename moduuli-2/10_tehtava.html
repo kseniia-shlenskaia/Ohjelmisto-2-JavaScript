@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Voting program</title>
+	</head>
+	<body>
+		<h1>Voting program</h1>
+		<p id="target"></p>
+		<script>
+			"use strict";
+			const candidates_number = prompt("Enter the number of candidates");
+			const candidates = [];
+
+			for (let i = 0; i < candidates_number; i++) {
+				const candidate_name = prompt(
+					`Enter the name of the candidate #${i + 1}`
+				);
+				const candidate_data = {
+					name: candidate_name,
+					votes: 0,
+				};
+				candidates.push(candidate_data);
+			}
+
+			const voters_number = prompt("Enter the number of voters");
+
+			for (let i = 0; i < voters_number; i++) {
+				const vote = prompt(
+					`Enter the name of the candidate you vote for`
+				);
+
+				candidates.forEach((candidate) => {
+					if (
+						candidate.name.toLowerCase() ===
+						vote.toLocaleLowerCase()
+					) {
+						candidate.votes++;
+					}
+				});
+			}
+
+			const max_votes = Math.max(
+				...candidates.map((candidate) => candidate.votes)
+			);
+
+			const winners = candidates.filter(
+				(candidate) => candidate.votes === max_votes
+			);
+
+			winners.forEach((winner) => {
+				console.log(`The winner is ${winner.name} with ${winner.votes} votes`);
+			});
+
+			candidates.forEach((candidate) => {
+				console.log(`${candidate.name}: ${candidate.votes} votes`);
+			});
+		</script>
+	</body>
+</html>

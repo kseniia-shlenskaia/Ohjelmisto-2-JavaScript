@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Concatenate strings</title>
+	</head>
+	<body>
+		<h1>Concatenate strings</h1>
+		<p id="target"></p>
+		<script>
+			"use strict";
+            const array = ['Johnny', 'DeeDee', 'Joey', 'Marky'];
+
+            const concat_func = (array_of_strings) => {
+                let result_string = '';
+                array_of_strings.forEach(string => {
+                    result_string = result_string + string;
+                });
+                return result_string;
+            }
+
+            const result = concat_func(array);
+            document.querySelector('body').innerText = result;
+		</script>
+	</body>
+</html>
