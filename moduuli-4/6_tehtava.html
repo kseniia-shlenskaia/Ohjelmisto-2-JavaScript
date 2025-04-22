@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Chuck Norris</title>
+	</head>
+	<body>
+		<h1>Chuck Norris</h1>
+
+		<form id="searchForm">
+			<input id="query" type="text" />
+			<button type="submit">Search</button>
+		</form>
+
+		<div id="results"></div>
+
+		<script>
+			document
+				.getElementById("searchForm")
+				.addEventListener("submit", async function (event) {
+					event.preventDefault();
+					const query = document.getElementById("query").value.trim();
+					const resultsContainer = document.getElementById("results");
+					resultsContainer.innerHTML = "";
+
+					if (!query) return;
+
+					try {
+						const response = await fetch(`https://api.chucknorris.io/jokes/search?query=${encodeURIComponent(query)}`);
+						const data = await response.json();
+
+						data.result.forEach((joke) => {
+							const article = document.createElement("article");
+							const p = document.createElement("p");
+							p.textContent = joke.value;
+							article.appendChild(p);
+							resultsContainer.appendChild(article);
+						});
+					} catch (err) {
+						console.error(err);
+					}
+				});
+		</script>
+	</body>
+</html>
